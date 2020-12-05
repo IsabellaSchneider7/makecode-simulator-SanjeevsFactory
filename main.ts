@@ -269,17 +269,21 @@ forever(function () {
         pause(1300)
         if (objectMaterial == "Unknown") {
             box.setVelocity(0, 25)
+            scene.cameraFollowSprite(box)
             pause(1300)
             box.setVelocity(0, 0)
             box.say("Unknown")
+            pause(200)
             resetBox()
             box.say("")
         } else if (objectMaterial == "Rubber") {
             pause(1325)
+            scene.cameraFollowSprite(box)
             box.setVelocity(0, 25)
             pause(1300)
             box.setVelocity(0, 0)
             box.say("Giant Cheerios")
+            pause(200)
             resetBox()
             box.say("")
         } else if (objectMaterial == "Porcelain") {
@@ -287,6 +291,7 @@ forever(function () {
         }
     }
     if (box.overlapsWith(blueButton)) {
+        scene.cameraFollowSprite(box)
         box.setVelocity(0, 0)
         blueButton.say("Scanning...")
         pause(2000)
@@ -299,14 +304,14 @@ forever(function () {
             pause(1300)
             box.setVelocity(0, 0)
             box.say("Side Goat Figurine")
+            pause(200)
             resetBox()
             box.say("")
         } else if (orientation == 0) {
             pause(1325)
-            box.setVelocity(0, 25)
-            pause(1300)
             box.setVelocity(0, 0)
             box.say("Upright Goat Figurine")
+            pause(200)
             resetBox()
             box.say("")
         }
