@@ -55,7 +55,9 @@ function resetBox () {
     pause(200)
     box.setVelocity(25, 0)
 }
-// Create and place game map and objects
+/**
+ * Create and place game map and objects
+ */
 let orientation = 0
 let objectWeight = 0
 let objectMaterial = ""
@@ -68,24 +70,7 @@ let blueButton: Sprite = null
 let box: Sprite = null
 let monkey: Sprite = null
 let pause2 = false
-tiles.setTilemap(tiles.createTilemap(hex`1000100004040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040704040404040704040404040404080105010901090106010901030404040404040402040204040402040404040404040404030403040404030404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404`, img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, [myTiles.transparency16,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.dungeon.chestClosed,sprites.dungeon.floorLight2,sprites.dungeon.buttonPink,sprites.dungeon.buttonTeal,myTiles.tile1,sprites.dungeon.chestOpen,myTiles.tile2], TileScale.Sixteen))
+tiles.setTilemap(tilemap`level`)
 pause2 = false
 monkey = sprites.create(img`
     ................................
@@ -262,10 +247,12 @@ forever(function () {
     if (box.overlapsWith(pinkButton)) {
         box.setVelocity(0, 0)
         pinkButton.say("Scanning...")
-        pause(2000)
+        pause(1000)
         pinkButton.say("")
-        game.showLongText("Stuff:", DialogLayout.Center)
-        game.showLongText("Material:", DialogLayout.Center)
+        game.showLongText("Length: "+ boxLength.toString() + "\n\nWidth: " + 
+        boxWidth.toString() + "\n\n\n\nHeight: " + boxHeight.toString() + 
+        "\n\n\n\n\nWeight: " + objectWeight.toString(), DialogLayout.Center)
+        game.showLongText("Material: " + objectMaterial, DialogLayout.Center)
         box.setVelocity(25, 0)
         pause(1300)
         if (objectMaterial == "Unknown") {
@@ -294,25 +281,28 @@ forever(function () {
     if (box.overlapsWith(blueButton)) {
         box.setVelocity(0, 0)
         blueButton.say("Scanning...")
-        pause(2000)
+        pause(1000)
         blueButton.say("")
-        game.showLongText("Orientation:", DialogLayout.Center)
-        box.setVelocity(25, 0)
-        pause(1300)
         if (orientation == 1) {
+            game.showLongText("Orientation: Side", DialogLayout.Center)
+            box.setVelocity(25, 0)
+            pause(1300)
             box.setVelocity(0, 25)
             pause(1300)
             box.setVelocity(0, 0)
-            box.say("Side Goat Figurine")
-            pause(200)
+            box.say("Side")
+            pause(500)
             box.say("Goat Figurine")
             resetBox()
             box.say("")
         } else if (orientation == 0) {
+            game.showLongText("Orientation: Upright", DialogLayout.Center)
+            box.setVelocity(25, 0)
+            pause(1300)
             pause(1300)
             box.setVelocity(0, 0)
-            box.say("Upright Goat Figurine")
-            pause(200)
+            box.say("Upright")
+            pause(500)
             box.say("Goat Figurine")
             resetBox()
             box.say("")
