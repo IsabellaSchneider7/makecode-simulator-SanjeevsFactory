@@ -274,7 +274,6 @@ forever(function () {
             pause(1300)
             box.setVelocity(0, 0)
             box.say("Unknown")
-            pause(200)
             resetBox()
             box.say("")
         } else if (objectMaterial == "Rubber") {
@@ -284,7 +283,6 @@ forever(function () {
             pause(1300)
             box.setVelocity(0, 0)
             box.say("Giant Cheerios")
-            pause(200)
             resetBox()
             box.say("")
         } else if (objectMaterial == "Porcelain") {
@@ -307,6 +305,7 @@ forever(function () {
             box.setVelocity(0, 0)
             box.say("Side Goat Figurine")
             pause(200)
+            box.say("Goat Figurine")
             resetBox()
             box.say("")
         } else if (orientation == 0) {
@@ -314,6 +313,7 @@ forever(function () {
             box.setVelocity(0, 0)
             box.say("Upright Goat Figurine")
             pause(200)
+            box.say("Goat Figurine")
             resetBox()
             box.say("")
         }
