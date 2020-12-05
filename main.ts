@@ -264,7 +264,8 @@ forever(function () {
         pinkButton.say("Scanning...")
         pause(2000)
         pinkButton.say("")
-        game.showLongText("", DialogLayout.Center)
+        game.showLongText("Stuff:", DialogLayout.Center)
+        game.showLongText("Material:", DialogLayout.Center)
         box.setVelocity(25, 0)
         pause(1300)
         if (objectMaterial == "Unknown") {
@@ -277,7 +278,7 @@ forever(function () {
             resetBox()
             box.say("")
         } else if (objectMaterial == "Rubber") {
-            pause(1325)
+            pause(1300)
             scene.cameraFollowSprite(box)
             box.setVelocity(0, 25)
             pause(1300)
@@ -288,15 +289,16 @@ forever(function () {
             box.say("")
         } else if (objectMaterial == "Porcelain") {
             box.setVelocity(25, 0)
+            pause(1325)
+            scene.cameraFollowSprite(box)
         }
     }
     if (box.overlapsWith(blueButton)) {
-        scene.cameraFollowSprite(box)
         box.setVelocity(0, 0)
         blueButton.say("Scanning...")
         pause(2000)
         blueButton.say("")
-        game.showLongText("", DialogLayout.Center)
+        game.showLongText("Orientation:", DialogLayout.Center)
         box.setVelocity(25, 0)
         pause(1300)
         if (orientation == 1) {
@@ -308,7 +310,7 @@ forever(function () {
             resetBox()
             box.say("")
         } else if (orientation == 0) {
-            pause(1325)
+            pause(1300)
             box.setVelocity(0, 0)
             box.say("Upright Goat Figurine")
             pause(200)
